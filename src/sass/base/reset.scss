@@ -1,0 +1,25 @@
+@import "../abstract/variable.scss";
+html{
+    color: $BRANDCREAMWHITE ;
+}
+ul, ol {
+    padding: 0;
+    display: flex;
+    margin: 0;
+    list-style-type: none;
+}
+h1, h2, h3, p{
+    padding: 0;
+    margin: 0;
+}
+h1, h2 {
+    font-family: Garamond-Medium;
+}
+
+h3, p {
+  font-family: Montserrat-Regular;
+}
+body {
+    padding: 0;
+    margin: 0;
+}

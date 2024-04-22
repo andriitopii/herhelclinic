@@ -1,0 +1,27 @@
+@import "../../sass/abstract/variable.scss";
+.nav{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 24px 48px;
+    &__btn-menu{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    &__menu{
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+    }
+}
