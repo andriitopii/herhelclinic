@@ -1,0 +1,23 @@
+@import "../../sass/abstract/variable.scss";
+.media-article {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border: 1px solid $BRANDBLACK;
+  border-top-left-radius: 400px;
+  border-top-right-radius: 400px;
+  border-bottom-left-radius: 48px;
+  border-bottom-right-radius: 48px;
+  padding: 32px;
+  max-width: 450px;
+  min-width: 300px;
+  box-sizing: border-box;
+  scroll-snap-align: center;
+  & img {
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+  }
+}

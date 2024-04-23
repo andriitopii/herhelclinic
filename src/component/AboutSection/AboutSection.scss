@@ -1,0 +1,79 @@
+@import "../../sass/abstract/variable.scss";
+.about {
+  background-color: $BRANDCREAMWHITE;
+  color: $BRANDBLACK;
+  @media (min-width: 1273px) {
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+  }
+  @media (min-width: 769px) and (max-width: 1272px) {
+    border-bottom-left-radius: 64px;
+    border-bottom-right-radius: 64px;
+  }
+  @media (min-width: 200px) and (max-width: 768px) {
+    border-bottom-left-radius: 48px;
+    border-bottom-right-radius: 48px;
+  }
+  &__container.container{
+    gap: 24px;
+    height: 100%;
+  }
+  &__header{
+    display: flex;
+    gap: 24px;
+    & h1 {
+      font-size: 128px;
+      text-transform: uppercase;
+    }
+    & p {
+      font-size: clamp(18px, 4vw, 32px);
+      
+    }
+    & div:last-child{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+    flex-grow: 1;
+    &_item{
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      flex-basis: calc(50% - 12px);
+      justify-content: center;
+      border-radius: 48px;
+      box-sizing: border-box;
+      padding: 32px;
+      overflow: hidden;
+      & h2, p, svg {
+        z-index: 2;
+      }
+    }
+  }
+  &__img1, &__img2 {
+    background-size: cover;
+    background-position: center;
+    color: $BRANDCREAMWHITE;
+    &::after{
+      position: absolute;
+      content: "";
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($BRANDBLACK, 0.3);
+    }
+  }
+  &__img1{
+    background-image: url("./img/1.jpg");
+    
+  }
+  &__img2{
+    background-image: url("./img/2.jpg");
+  }
+}

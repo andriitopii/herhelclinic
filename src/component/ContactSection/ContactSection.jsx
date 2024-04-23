@@ -8,11 +8,11 @@ const ContactSection = () => {
             <h1>skontaktuj się</h1>
             <p>Zostaw nam swoje dane, a my skontaktujemy się z Tobą tak szybko, jak to możliwe</p>
             <form>
-                <input type="text"/>
-                <input type="number"/>
-                <input type="email"/>
-                <input type="text"/>
-                <Button type="white-fill">WYSLIJ</Button>
+                <input placeholder="NAME" type="text"/>
+                <input placeholder="MOBILE" type="number"/>
+                <input placeholder="EMAIL" type="email"/>
+                <input placeholder="MESAGGE" type="text"/>
+                <button className="btn btn--white-fill">Wyslij</button>
             </form>
             </div>
             <div className="contact__img">

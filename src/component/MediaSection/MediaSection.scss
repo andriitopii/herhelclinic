@@ -1,4 +1,43 @@
 @import "../../sass/abstract/variable.scss";
-.media{
-    background-color: $BRANDSANDY;
+.media {
+  background-color: $BRANDBRIGHTSANDY;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  position: relative;
+  color: $BRANDBLACK;
+  &__container.container{
+    gap: 32px;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    background-color: $BRANDCREAMWHITE;
+  }
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    &_title{
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      
+    }
+  }
+  &__content{
+    &_slider{
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+    }
+  }
 }
