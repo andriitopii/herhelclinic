@@ -1,10 +1,23 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import LineVertical from "../Icon/LineVertical";
 import MouseSvg from "../Icon/MouseSvg";
 import "./Header.scss";
 import headerVideo from "./headervideo.mp4"
+import LineHorizontal from "../Icon/LineHorizontal";
 
 const Header = () => {
+    const [lineDecor, setLineDecor] = useState(true)
+    function setLine(){
+        const width = window.innerWidth;
+        if(width < 768){
+            setLineDecor(false)
+        } else {
+            setLineDecor(true)
+        }
+    }
+    window.addEventListener('load', setLine)
+    window.addEventListener('resize', setLine)
     return ( 
     <header className="header">
         <div className="header__video">
@@ -20,7 +33,7 @@ const Header = () => {
             </ul>
             <ul>
                 <li><MouseSvg/></li>
-                <li><LineVertical/></li>
+                <li>{lineDecor ? <LineVertical/> : <LineHorizontal/>}</li>
             </ul>
         </div>
         <div className="header__content">
@@ -30,7 +43,7 @@ const Header = () => {
         <p>Odkryj świat kosmetologii, w którym piękno łączy się ze zdrowiem, zapewniając wspaniały wygląd wewnątrz i na zewnątrz</p>
         <div className="header__content_btn-container">
             <Button href="#" type="white-fill">UMOW WIZYTE</Button>
-            <Button href="#" type="white-trans-stroke">POZNAJ NAS</Button>
+            <Button href="#service" type="white-trans-stroke">POZNAJ NAS</Button>
         </div>
         <a className="header__content_adress" href="" target="__blank">Warszawa, ul.Krochmalna 58</a>
         </div>

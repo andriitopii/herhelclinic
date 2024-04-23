@@ -34,10 +34,10 @@ const Footer = () => {
               <h2>MAPA STRONY</h2>
             </li>
             <li><a href="#">NASZE USLUGI</a></li>
-            <li><a href="#">CENY</a></li>
-            <li><a href="#">O NAS</a></li>
+            <li><a href="#service">CENY</a></li>
+            <li><a href="#about">O NAS</a></li>
             <li><a href="#">Jesteśmy w mediach</a></li>
-            <li><a href="#">KONTAKTY</a></li>
+            <li><a href="#contact">KONTAKTY</a></li>
           </ul>
         </div>
 

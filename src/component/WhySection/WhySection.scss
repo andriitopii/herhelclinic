@@ -1,0 +1,155 @@
+@import "../../sass/abstract/variable.scss";
+.why {
+  color: $BRANDBLACK;
+  background-color: $BRANDCREAMWHITE;
+  height: fit-content;
+  max-height: fit-content;
+  border-bottom-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  &__container.container {
+    gap: 90px;
+  }
+  &__article {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+    gap: 24px;
+    &_text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      gap: 24px;
+      
+      & svg {
+        margin: 0 96px;
+      }
+      & h1 {
+        font-size: clamp(48px, 10vw, 98px);
+        text-transform: uppercase;
+        line-height: 100%;
+      }
+      & p {
+        max-width: 500px;
+        font-size: 24px;
+      }
+    }
+    &_media {
+      flex: 1;
+      aspect-ratio: 1/1;
+    }
+  }
+  &__atmosfera-grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+    grid-template-areas:
+     "atm-1 atm-3 atm-3"
+     "atm-1 atm-3 atm-3"
+     "atm-1 atm-4 atm-4"
+     "atm-1 atm-4 atm-4"
+     "atm-2 atm-4 atm-4"
+     "atm-2 atm-4 atm-4"
+     "atm-2 atm-5 atm-6"
+     "atm-2 atm-5 atm-6";   
+  }
+  &__tool-grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+    grid-template-areas:
+    "tool-1 tool-1 tool-4"
+    "tool-1 tool-1 tool-4"
+    "tool-2 tool-2 tool-4"
+    "tool-2 tool-2 tool-4"
+    "tool-2 tool-2 tool-5"
+    "tool-2 tool-2 tool-5"
+    "tool-3 tool-3 tool-5"
+    "tool-3 tool-3 tool-5"
+    ;   
+  }
+  &__medic-grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 12px;
+    grid-template-areas:
+    "med-1 med-1 med-3"
+    "med-1 med-1 med-3"
+    "med-1 med-1 med-3"
+    "med-2 med-4 med-4"
+    "med-2 med-4 med-4"
+    "med-2 med-4 med-4"
+    ;   
+  }
+  &__grid-image{
+    background-size: cover;
+    border-radius: 48px;
+  }
+}
+// ATM
+.atm-grid-1{
+    grid-area: atm-1;
+    background-image: url("./atm/1.jpg");
+}
+.atm-grid-2{
+    grid-area: atm-2;
+    background-image: url("./atm/2.jpg");
+}
+.atm-grid-3{
+    grid-area: atm-3;
+    background-image: url("./atm/3.jpg");
+}
+.atm-grid-4{
+    grid-area: atm-4;
+    background-image: url("./atm/4.jpg");
+}
+.atm-grid-5{
+    grid-area: atm-5;
+    background-image: url("./atm/5.jpg");
+}
+.atm-grid-6{
+    grid-area: atm-6;
+    background-image: url("./atm/6.jpg");
+}
+// TOOL
+.tool-grid-1{
+    grid-area: tool-1;
+    background-image: url("./tool/1.jpg");
+}
+.tool-grid-2{
+    grid-area: tool-2;
+    background-image: url("./tool/2.jpg");
+}
+.tool-grid-3{
+    grid-area: tool-3;
+    background-image: url("./tool/3.jpg");
+}
+.tool-grid-4{
+    grid-area: tool-4;
+    background-image: url("./tool/4.jpg");
+}
+.tool-grid-5{
+    grid-area: tool-5;
+    background-image: url("./tool/5.jpg");
+}
+// MEDIC
+.med-grid-1{
+    grid-area: med-1;
+    background-image: url("./med/1.jpg");
+}
+.med-grid-2{
+    grid-area: med-2;
+    background-image: url("./med/2.jpg");
+}
+.med-grid-3{
+    grid-area: med-3;
+    background-image: url("./med/3.jpg");
+}
+.med-grid-4{
+    grid-area: med-4;
+    background-image: url("./med/4.jpg");
+}
+

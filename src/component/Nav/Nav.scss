@@ -9,10 +9,23 @@
     width: 100%;
     z-index: 10;
     padding: 24px 48px;
+    @media (min-width:1273px) {
+        
+    }
+    @media (min-width: 769px) and (max-width: 1272px){
+        padding: 12px 32px;
+    }
+    @media (min-width: 200px) and (max-width: 768px) {
+        padding: 0px 24px;
+    }
+    &__container{
+        align-items: center;
+    }
     &__btn-menu{
         background-color: transparent;
         border: none;
         cursor: pointer;
+        
     }
     &__menu{
         position: fixed;

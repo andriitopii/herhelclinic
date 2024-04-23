@@ -1,22 +1,16 @@
-const LineVertical = ({...props}) => {
+const LineHorizontal = ({ ...props }) => {
   return (
     <svg
-      width="1"
-      height="101"
-      viewBox="0 0 1 101"
-      fill="none"
+      width="118"
+      height="1"
       {...props}
+      viewBox="0 0 118 1"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <line
-        x1="0.5"
-        y1="-2.18557e-08"
-        x2="0.500004"
-        y2="101"
-        stroke="#FFFAEE"
-      />
+      <line y1="0.5" x2="118" y2="0.5" stroke="white" />
     </svg>
   );
 };
 
-export default LineVertical;
+export default LineHorizontal;

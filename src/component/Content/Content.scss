@@ -3,8 +3,23 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border-radius: 90px;
-    height: 1000px;
-    background-color: $BRANDCREAMWHITE;
+    width: 100%;
+    background-color: $BRANDBRIGHTSANDY;
+    // overflow-x: hidden;
+    // overflow-y: scroll;
+    
+    // scrollbar-width: none;
     z-index: 10;
+    box-sizing: border-box;
+    
+    // scroll-snap-type: y mandatory;
+    @media (min-width:1273px) {
+        border-radius: 90px;
+    }
+    @media (min-width: 769px) and (max-width: 1272px){
+        border-radius: 64px;
+    }
+    @media (min-width: 200px) and (max-width: 768px) {
+        border-radius: 48px;
+    }
 }

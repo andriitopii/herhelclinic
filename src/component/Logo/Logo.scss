@@ -7,4 +7,15 @@
         height: 100%;
         fill: $BRANDCREAMWHITE;
     }
+    @media (min-width:1273px) {
+        
+    }
+    @media (min-width: 769px) and (max-width: 1272px){
+        width: 222px;
+        height: 55px;
+    }
+    @media (min-width: 200px) and (max-width: 768px) {
+        width: 157px;
+        height: 53px;
+    }
 }
