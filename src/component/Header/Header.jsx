@@ -42,8 +42,8 @@ const Header = () => {
         <h1>świetny wygląd.</h1>
         <p>Odkryj świat kosmetologii, w którym piękno łączy się ze zdrowiem, zapewniając wspaniały wygląd wewnątrz i na zewnątrz</p>
         <div className="header__content_btn-container">
-            <Button href="" type="white-fill">UMOW WIZYTE</Button>
-            <Button href="#service" type="white-trans-stroke">POZNAJ NAS</Button>
+            <Button href="https://booksy.com/uk-pl/229392_herhel-clinic_medycyna-estetyczna_3_warszawa?do=invite#ba_s=dl_1" type="white-fill">UMOW WIZYTE</Button>
+            <Button href="#service"  type="white-trans-stroke">POZNAJ NAS</Button>
         </div>
         <a className="header__content_adress" href="" target="__blank">Warszawa, ul.Krochmalna 58</a>
         </div>

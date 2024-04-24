@@ -4,6 +4,7 @@ import Home from './component/Home/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Content from './component/Content/Content'
 import "./master.scss"
+import AdminPage from './component/AdminPage/AdminPage'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -11,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Route path="/" element={<Home/>}>
       <Route index element={<Content/>}/>
     </Route>
-    <Route path="/admin" element={<Home/>}>
+    <Route path="/admin" element={<AdminPage/>}>
       <Route index element={<Content/>}/>
     </Route>
   </Routes>
