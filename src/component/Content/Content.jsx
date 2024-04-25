@@ -8,14 +8,19 @@ import VideoSection from "../VideoSection/VideoSection";
 import "./Content.scss"
 import MediaSection from "../MediaSection/MediaSection";
 import WhySection from "../WhySection/WhySection";
+import { useInView } from "react-intersection-observer";
 const Content = () => {
+  const {ref, inView} = useInView({
+    threshold: 0.1
+  })
+  
   return (
     <>
     <Helmet>
       <title>HERHEL CLINIC</title>
     </Helmet>
-      <Header />
-      <main className="main">
+      <Header visible={inView}/>
+      <main ref={ref} className="main">
         <ServiceSection/>
         <QuateSection/>
         <VideoSection/>

@@ -6,7 +6,7 @@ import "./Header.scss";
 import headerVideo from "./headervideo.mp4"
 import LineHorizontal from "../Icon/LineHorizontal";
 
-const Header = () => {
+const Header = ({visible}) => {
     const [lineDecor, setLineDecor] = useState(true)
     function setLine(){
         const width = window.innerWidth;
@@ -18,10 +18,11 @@ const Header = () => {
     }
     window.addEventListener('load', setLine)
     window.addEventListener('resize', setLine)
+    console.log(visible);
     return ( 
-    <header className="header">
+    <header className="header" style={{visibility: visible ? "hidden" : "visible"}}>
         <div className="header__video">
-        <video loop autoPlay muted src={headerVideo} ></video>
+        <video loop autoPlay muted src={headerVideo} ></video> 
         </div>
         
         <div className="header__container container container--row ">
