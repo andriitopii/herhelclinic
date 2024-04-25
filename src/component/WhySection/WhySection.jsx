@@ -36,10 +36,10 @@ const WhySection = () => {
               <div className="why__grid-image tool-grid-5"></div>
             </div>
           </div>
-          <div className="why__article_text" style={{ alignItems: "end" }}>
+          <div className="why__article_text why__article_text-end" >
             <LineVerticalBlack />
-            <h1 style={{ textAlign: "right" }}>Nowoczesne urządzenia</h1>
-            <p style={{ textAlign: "right" }}>
+            <h1>Nowoczesne urządzenia</h1>
+            <p>
               Każdy element wnętrza został starannie dobrany z uwzględnieniem
               najnowszych trendów, aby stworzyć poczucie luksusu i elegancji.
             </p>

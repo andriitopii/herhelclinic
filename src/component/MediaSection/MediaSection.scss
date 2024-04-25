@@ -5,8 +5,23 @@
   border-bottom-right-radius: 90px;
   position: relative;
   color: $BRANDBLACK;
+  @media (min-width: 1273px) {
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+  }
+  @media (min-width: 769px) and (max-width: 1272px) {
+    border-bottom-left-radius: 64px;
+    border-bottom-right-radius: 64px;
+  }
+  
+  @media (min-width: 200px) and (max-width: 768px) {
+    border-bottom-left-radius: 48px;
+    border-bottom-right-radius: 48px;
+   
+  }
   &__container.container{
     gap: 32px;
+    overflow: hidden;
   }
   &:after {
     position: absolute;

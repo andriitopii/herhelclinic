@@ -17,31 +17,121 @@
     border-bottom-right-radius: 48px;
   }
   &__container.container {
-    gap: 90px;
+    @media (min-width: 1273px) {
+      gap: 90px;
+    }
+    @media (min-width: 769px) and (max-width: 1272px) {
+      gap: 48px;
+    }
+    @media (min-width: 200px) and (max-width: 768px) {
+      gap: 48px;
+    }
+  }
+  &__article:nth-child(2){
+    @media (min-width: 1273px) {
+      
+    }
+    @media (min-width: 1001px) and (max-width: 1272px) {
+      
+    }
+    @media (min-width: 200px) and (max-width: 1000px) {
+      flex-direction: column-reverse;
+    }
   }
   &__article {
     display: flex;
     width: 100%;
     min-height: 100%;
     gap: 24px;
+    @media (min-width: 1273px) {
+      
+    }
+    @media (min-width: 1001px) and (max-width: 1272px) {
+      
+    }
+    @media (min-width: 200px) and (max-width: 1000px) {
+      flex-direction: column;
+    }
+    &_text-end{
+      
+      @media (min-width: 1273px) {
+      align-items: end;
+      }
+      @media (min-width: 1001px) and (max-width: 1272px) {
+        align-items: end;
+      }
+      @media (min-width: 200px) and (max-width: 1000px) {
+        align-items: center;
+        
+      }
+      & h1 {
+        @media (min-width: 1273px) {
+          text-align: right;
+          }
+          @media (min-width: 769px) and (max-width: 1272px) {
+            text-align: right;
+          }
+          @media (min-width: 200px) and (max-width: 768px) {
+            text-align: center;
+          }
+      }
+    }
     &_text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex: 1;
       gap: 24px;
-
+      @media (min-width: 1273px) {
+      
+      }
+      @media (min-width: 1001px) and (max-width: 1272px) {
+        
+      }
+      @media (min-width: 200px) and (max-width: 1000px) {
+        align-items: center;
+      }
       & svg {
         margin: 0 96px;
+        @media (min-width: 1273px) {
+      
+        }
+        @media (min-width: 1001px) and (max-width: 1272px) {
+          height: 64px;
+          margin: 0 64px;
+        }
+        @media (min-width: 200px) and (max-width: 1000px) {
+          height: 48px;
+          margin: 0
+        }
       }
       & h1 {
         font-size: clamp(48px, 10vw, 98px);
         text-transform: uppercase;
         line-height: 100%;
+        @media (min-width: 1273px) {
+          font-size: 100px;
+        }
+        @media (min-width: 1001px) and (max-width: 1272px) {
+          font-size: 64px;
+        }
+        @media (min-width: 200px) and (max-width: 1000px) {
+          font-size: 48px;
+          text-align: center;
+        }
       }
       & p {
         max-width: 500px;
-        font-size: 24px;
+        @media (min-width: 1273px) {
+          font-size: 24px;
+        }
+        @media (min-width: 1001px) and (max-width: 1272px) {
+          font-size: 20px;
+        }
+        @media (min-width: 200px) and (max-width: 1000px) {
+          text-align: center;
+          font-size: 18px;
+        }
       }
     }
     &_media {
@@ -94,7 +184,16 @@
   }
   &__grid-image {
     background-size: cover;
-    border-radius: 48px;
+    background-position: center;
+    @media (min-width: 1273px) {
+      border-radius: 64px;
+    }
+    @media (min-width: 769px) and (max-width: 1272px) {
+      border-radius: 48px;
+    }
+    @media (min-width: 200px) and (max-width: 768px) {
+      border-radius: 24px;
+    }
   }
 }
 // ATM

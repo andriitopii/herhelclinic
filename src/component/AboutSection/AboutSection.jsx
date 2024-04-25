@@ -7,7 +7,7 @@ import "./AboutSection.scss";
 const AboutSection = () => {
   return (
     <section id="about" className="about">
-      <div className="container about__container container--column">
+      <div className="container about__container">
         <div className="about__header">
           <div>
             <h1>Herhel clinic </h1>
@@ -30,7 +30,7 @@ const AboutSection = () => {
               medycyny estetycznej w jednej lokalizacji
             </p>
           </div>
-          <div className="about__content_item">
+          <div className="about__content_item about__img3" >
             <HealthSvg/>
             <h2>Opieka</h2>
             <p>

@@ -8,9 +8,14 @@
     justify-content: center;
     width: 100%;
     height: 100vh;
-    padding: 0 48px;
     box-sizing: border-box;
     overflow: hidden;
+    @media (min-width:1273px) {
+        padding: 0 48px;
+    }
+    @media (min-width: 769px) and (max-width: 1272px){
+        padding: 0 32px;
+    }
     @media (min-width: 200px) and (max-width: 768px) {
         padding: 0 24px;
     }
