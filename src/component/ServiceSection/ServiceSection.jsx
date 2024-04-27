@@ -6,8 +6,8 @@ import Button from "../Button/Button";
 import LineHorizontalBlack from "../Icon/LineHorizontalBlack";
 import ArrowSvg from "../Icon/ArrowSvg";
 import { useState } from "react";
-import consaltImg from "./img/CONSALT.jpg"
-import cleanImg from "./img/CLEAN.jpg"
+import consaltImg from "./img/CONSALT.webp"
+import cleanImg from "./img/CLEAN.webp"
 const ServiceSection = () => {
   
   const objData = {

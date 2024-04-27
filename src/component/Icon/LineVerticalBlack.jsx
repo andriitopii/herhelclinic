@@ -1,6 +1,12 @@
+import { useInView } from "react-intersection-observer";
+
 const LineVerticalBlack = ({ ...props }) => {
+  const {ref, inView} = useInView({threshold: 0.1})
   return (
     <svg
+      ref={ref}
+      className={`${inView ? "show-animate" : ""}`}
+      style={{opacity: "0"}}
       width="1"
       height="159"
       viewBox="0 0 1 159"

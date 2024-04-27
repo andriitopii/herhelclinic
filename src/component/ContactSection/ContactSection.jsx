@@ -1,6 +1,6 @@
 import Button from "../Button/Button";
 import "./ContactSection.scss";
-import contactImg from "./contactimg.jpg";
+
 const ContactSection = () => {
     return ( <section id="contact" className="contact">
         <div className="container contact__container">

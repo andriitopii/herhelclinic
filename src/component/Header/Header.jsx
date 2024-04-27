@@ -22,7 +22,7 @@ const Header = ({visible}) => {
     return ( 
     <header className="header" style={{visibility: visible ? "hidden" : "visible"}}>
         <div className="header__video">
-        <video loop autoPlay muted src={headerVideo} ></video> 
+        <video lazy loop autoPlay muted src={headerVideo} ></video> 
         </div>
         
         <div className="header__container container container--row ">

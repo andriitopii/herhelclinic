@@ -6,3 +6,21 @@
     color: $BRANDORANGE;
 
 }
+
+.show-animate{
+    
+    animation-name: showanimate;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+@keyframes showanimate {
+    0%{
+        opacity: 0;   
+    }
+    
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./VideoSection.scss";
 import videoVideo from "./videosection.mp4";
-import posterVideo from "./postervideo.jpg"
+import posterVideo from "./postervideo.webp"
 const VideoSection = () => {
     const video = useRef()
     const [videoConrol, setVideoControl] = useState(false)
@@ -12,10 +12,10 @@ const VideoSection = () => {
             video.current.play()
         } 
         
-    }
+postervideo    }
   return (
     <section id="video" className="video">
-      <video  controls={videoConrol ? true : false} onClick={()=>controlVideo()}ref={video}  src={videoVideo} poster={posterVideo} className="video__media"></video>
+      <video preload="none" controls={videoConrol ? true : false} onClick={()=>controlVideo()}ref={video}  src={videoVideo} poster={posterVideo} className="video__media"></video>
     </section>
   );
 };
