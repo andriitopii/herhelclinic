@@ -21,7 +21,7 @@ const HealthSvg = ({ ...props }) => {
           width="64"
           height="64"
           fill="#F9B577"
-          fill-opacity="0.6"
+          fillOpacity="0.6"
         />
       </mask>
       <g mask="url(#mask0_240_3511)">

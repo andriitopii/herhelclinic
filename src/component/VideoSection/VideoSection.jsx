@@ -1,21 +1,26 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./VideoSection.scss";
 import videoVideo from "./videosection.mp4";
 import posterVideo from "./postervideo.webp"
+import { useInView } from "react-intersection-observer";
 const VideoSection = () => {
-    const video = useRef()
-    const [videoConrol, setVideoControl] = useState(false)
-    console.dir(video.current)
-    function controlVideo(){
-        setVideoControl(!videoConrol);
-        if(videoConrol){
-            video.current.play()
-        } 
-        
-postervideo    }
+    const refVideo = useRef();
+    
+    const {ref, inView} = useInView({
+      threshold: 0.2,
+    })
+    
+    useEffect(()=> {
+      if(inView){
+        refVideo.current.play()
+      }else {
+        refVideo.current.pause()
+      }
+    }, [inView])
+
   return (
-    <section id="video" className="video">
-      <video preload="none" controls={videoConrol ? true : false} onClick={()=>controlVideo()}ref={video}  src={videoVideo} poster={posterVideo} className="video__media"></video>
+    <section ref={ref} id="video" className="video">
+      <video ref={refVideo}  muted   loop  src={videoVideo}  className={`video__media ${inView ? "show-animate": "hide-animate"}`}></video>
     </section>
   );
 };

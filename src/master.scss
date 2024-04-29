@@ -6,7 +6,12 @@
     color: $BRANDORANGE;
 
 }
+.hide-animate{
+    animation-name: hideanimate;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
 
+}
 .show-animate{
     
     animation-name: showanimate;
@@ -22,5 +27,16 @@
     100%{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+@keyframes hideanimate {
+    0%{
+        opacity: 1;
+        transform: translateY(0); 
+    }
+    
+    100%{
+        opacity: 0;
+        transform: translateY(20px);
     }
 }

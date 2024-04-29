@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 import ArrowSvg from "../Icon/ArrowSvg";
 import "./MediaArticle.scss" 
 const MediaArticle = () => {
-  const {ref, inView} = useInView({threshold: 0.1})
+  const {ref, inView} = useInView({threshold: 0.1, triggerOnce: true})
   return (
       
       <article ref={ref}  className={`media-article ${inView ? "show-animate": ""}`}>

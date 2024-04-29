@@ -18,11 +18,11 @@ const Header = ({visible}) => {
     }
     window.addEventListener('load', setLine)
     window.addEventListener('resize', setLine)
-    console.log(visible);
+
     return ( 
-    <header className="header" style={{visibility: visible ? "hidden" : "visible"}}>
+    <header id="header" className="header" style={{visibility: visible ? "hidden" : "visible"}}>
         <div className="header__video">
-        <video lazy loop autoPlay muted src={headerVideo} ></video> 
+        <video  loop autoPlay muted src={headerVideo} ></video> 
         </div>
         
         <div className="header__container container container--row ">
@@ -46,7 +46,7 @@ const Header = ({visible}) => {
             <Button href="https://booksy.com/uk-pl/229392_herhel-clinic_medycyna-estetyczna_3_warszawa?do=invite#ba_s=dl_1" type="white-fill">UMOW WIZYTE</Button>
             <Button href="#service"  type="white-trans-stroke">POZNAJ NAS</Button>
         </div>
-        <a className="header__content_adress" href="" target="__blank">Warszawa, ul.Krochmalna 58</a>
+        <a className="header__content_adress" href="https://maps.app.goo.gl/SUBTG7s4QVLZySGM7" target="__blank">Warszawa, ul.Krochmalna 58</a>
         </div>
         </div>
     </header> );

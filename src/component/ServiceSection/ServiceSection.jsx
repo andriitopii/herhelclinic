@@ -129,8 +129,10 @@ const ServiceSection = () => {
             <ul className="service__detail_services">
               {
                 articleDetail.services.map((item)=>{
+                  
                   for (const key in item) {
-                    return <li className=""> {Object.keys(item)}<span>{item[key]}</span></li>
+                    
+                    return <li  className=""> {Object.keys(item)}<span>{item[key]}</span></li>
                   }
                 })
               }
@@ -141,7 +143,7 @@ const ServiceSection = () => {
           </div>
           
           <div className="service__image">
-            <img lazy src={imgArticle}/>
+            <img loading="lazy" src={imgArticle}/>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="container container--column">
         <div className="footer__header">
-          <Logo></Logo>
+          <Logo type="ACHOR"/>
           <Button type="white-fill">UMOW WIZYTE</Button>
         </div>
         <div className="footer__menu">
@@ -44,13 +44,13 @@ const Footer = () => {
         <div className="footer__copyright">
           <ul>
             <li>
-              <a href="#">Powered by Andrii Topii</a>
+              <a href="https://www.andriitopii.com/" target="__blank">Powered by Andrii Topii</a>
             </li>
             <li>
-              <a href="#">POLITYKA PRYWATNOSTI</a>
+            <Link to="/police" re>POLITYKA PRYWATNOSTI</Link>
             </li>
             <li>
-              <a href="#">TERMS & CONDITIONS</a>
+              <a href="/terms">TERMS & CONDITIONS</a>
             </li>
           </ul>
 

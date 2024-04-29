@@ -14,7 +14,7 @@ const LineHorizontalSmall = ({ ...props }) => {
         x2="0.649997"
         y2="67.25"
         stroke="#333333"
-        stroke-width="1.3"
+        strokeWidth="1.3"
       />
     </svg>
   );
