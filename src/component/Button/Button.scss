@@ -13,6 +13,8 @@
     font-size: 24px;
     box-sizing: border-box;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
     transition: all ease-in-out 0.2s;
     outline: 2px solid transparent;
     &:hover{

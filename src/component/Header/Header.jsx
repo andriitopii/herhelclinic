@@ -5,7 +5,19 @@ import MouseSvg from "../Icon/MouseSvg";
 import "./Header.scss";
 import headerVideo from "./headervideo.mp4"
 import LineHorizontal from "../Icon/LineHorizontal";
-
+import { useInView } from "react-intersection-observer";
+const HeaderTitle = ({title}) => {
+    const {ref, inView} = useInView({threshold: 0.2});
+    return(<h1 ref={ref} className={`${inView ? "show-animate" :"hide-animate"}`}>{title}</h1>)
+}
+const HeaderDescrip = ({descrip}) => {
+    const {ref, inView} = useInView({threshold: 0.2});
+    return(<p ref={ref} className={`${inView ? "show-animate" :"hide-animate"}`}>{descrip}</p>)
+}
+const HeaderTitle3 = ({title}) => {
+    const {ref, inView} = useInView({threshold: 0.2});
+    return(<h3 ref={ref} className={`${inView ? "show-animate" :"hide-animate"}`}>{title}</h3>)
+}
 const Header = ({visible}) => {
     const [lineDecor, setLineDecor] = useState(true)
     function setLine(){
@@ -20,13 +32,13 @@ const Header = ({visible}) => {
     window.addEventListener('resize', setLine)
 
     return ( 
-    <header id="header" className="header" style={{visibility: visible ? "hidden" : "visible"}}>
-        <div className="header__video">
-        <video  loop autoPlay muted src={headerVideo} ></video> 
+    <header id="header" className="header">
+        <div className={`header__video ${visible ? "hide-animate" : "show-animate"}`}>
+        {visible ? <></>: <video  loop autoPlay muted src={headerVideo} ></video> }
         </div>
         
         <div className="header__container container container--row ">
-        <div className="header__social">
+        <div className="header__social" >
             <ul>
                 <li><a href="#">ING</a></li>
                 <li><a href="#">FC</a></li>
@@ -38,10 +50,11 @@ const Header = ({visible}) => {
             </ul>
         </div>
         <div className="header__content">
-        <h3>Klinika medycyny estetycznej №1 w Warszawie</h3>
-        <h1>Piękno, Zdrowie,</h1>
-        <h1>świetny wygląd.</h1>
-        <p>Odkryj świat kosmetologii, w którym piękno łączy się ze zdrowiem, zapewniając wspaniały wygląd wewnątrz i na zewnątrz</p>
+        <HeaderTitle3 title="Klinika medycyny estetycznej №1 w Warszawie"/>
+        <HeaderTitle title="Piękno, Zdrowie,"/>
+        <HeaderTitle title="świetny wygląd."/>
+        <HeaderDescrip descrip="Odkryj świat kosmetologii, w którym piękno łączy się ze zdrowiem, zapewniając wspaniały wygląd wewnątrz i na zewnątrz"/>
+        
         <div className="header__content_btn-container">
             <Button href="https://booksy.com/uk-pl/229392_herhel-clinic_medycyna-estetyczna_3_warszawa?do=invite#ba_s=dl_1" type="white-fill">UMOW WIZYTE</Button>
             <Button href="#service"  type="white-trans-stroke">POZNAJ NAS</Button>

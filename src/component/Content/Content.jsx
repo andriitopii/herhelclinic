@@ -9,6 +9,8 @@ import "./Content.scss"
 import MediaSection from "../MediaSection/MediaSection";
 import WhySection from "../WhySection/WhySection";
 import { useInView } from "react-intersection-observer";
+import Loader from "../Loader/Loader";
+import { useEffect, useState } from "react";
 const Content = () => {
   const {ref, inView} = useInView({
     threshold: 0.1
@@ -19,7 +21,10 @@ const Content = () => {
     <Helmet>
       <title>HERHEL CLINIC</title>
     </Helmet>
-      <Header visible={inView}/>
+    
+    <Header visible={inView}/>
+   
+      
       <main ref={ref} className="main">
         <ServiceSection/>
         <QuateSection/>

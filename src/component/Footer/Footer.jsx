@@ -18,9 +18,9 @@ const Footer = () => {
             <li>
               <h2>CONTACT US</h2>
             </li>
-            <li><span><CallSvg/></span><a href="">02 9055 6222</a></li>
-            <li><span><EmailSvg/></span><a href="">HERRHELCLINIC@GMAIL.COM</a></li>
-            <li><span><HomeSvg/></span><a href="">WARSZAWA, UL. KROCHMALNA 8, LOC 2</a></li>
+            <li><span><CallSvg/></span><a href="tel:48574571006">574-571-006</a></li>
+            <li><span><EmailSvg/></span><a href="mailto:herhelclinic@gmail.com">herhelclinic@gmail.com</a></li>
+            <li><span><HomeSvg/></span><a href="https://maps.app.goo.gl/SUBTG7s4QVLZySGM7" target="__blank">WARSZAWA, UL. KROCHMALNA 8, LOC 2</a></li>
           </ul>
           <ul>
             <li>
@@ -33,10 +33,10 @@ const Footer = () => {
             <li>
               <h2>MAPA STRONY</h2>
             </li>
-            <li><a href="#">NASZE USLUGI</a></li>
+            <li><a href="#service">NASZE USLUGI</a></li>
             <li><a href="#service">CENY</a></li>
             <li><a href="#about">O NAS</a></li>
-            <li><a href="#">Jesteśmy w mediach</a></li>
+            <li><a href="#media">My w mediach</a></li>
             <li><a href="#contact">KONTAKTY</a></li>
           </ul>
         </div>
