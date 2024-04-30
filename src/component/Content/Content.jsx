@@ -10,7 +10,7 @@ import MediaSection from "../MediaSection/MediaSection";
 import WhySection from "../WhySection/WhySection";
 import { useInView } from "react-intersection-observer";
 import Loader from "../Loader/Loader";
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 const Content = () => {
   const {ref, inView} = useInView({
     threshold: 0.1

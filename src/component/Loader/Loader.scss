@@ -2,6 +2,7 @@
 .loader {
   display: flex;
   position: fixed;
+  overflow: hidden;
   opacity: 0.5;
   top: 0;
   left: 0;
@@ -77,14 +78,14 @@
   90% {
     opacity: 0.8;
     top:-100vh;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 300px;
   }
   100% {
     opacity: 0;
     top:-100vh;
-    border-bottom-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 300px;
     display: none;
   }
 }
