@@ -26,7 +26,15 @@
   font-family: Montserrat-Medium;
   font-size: 14px;
   transition: all ease-in-out .25s;
+  outline: 3px solid transparent;
+  &:hover{
+    outline: 3px solid rgba($BRANDORANGE, 0.5);
+  }
   &:active{
     transform: scale(0.99);
+  }
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }

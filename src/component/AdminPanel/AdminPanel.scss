@@ -19,6 +19,17 @@
                 width: 100%;
             }
         }
+        &_menu{
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            height: 100%;
+            & li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     }
     &__content{
         display: flex;

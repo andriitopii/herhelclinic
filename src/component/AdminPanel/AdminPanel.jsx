@@ -10,12 +10,15 @@ const AdminPanel = ({children}) => {
     return ( <section className="admin-panel">
         <div className="admin-panel__nav">
             <Link className="admin-panel__nav_logo" to={"."}><LogoBlackSvg/></Link>
-            <ul>
+            <ul className="admin-panel__nav_menu">
                 <li>
                     <NavLink to="media">Медіа</NavLink>
                 </li>
+                <li>
+                    <NavLink to="services-price">Послуги</NavLink>
+                </li>
             </ul>
-        <button onClick={()=>signOutAdmin()}>Вийти</button>
+        <button className="admin-panel__nav_exit"onClick={()=>signOutAdmin()}>Вийти</button>
         </div>
         <div className="admin-panel__content">
             {children}
