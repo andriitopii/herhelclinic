@@ -12,7 +12,6 @@ const Main = () => {
 return (
   <>
 
-    <Nav />
     <Outlet />
     <Footer />
   </>

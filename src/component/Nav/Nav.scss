@@ -1,25 +1,24 @@
 @import "../../sass/abstract/variable.scss";
 .nav{
     display: flex;
-    position: fixed;
-    justify-content: center;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
+    margin-bottom: auto;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 24px 48px;
     @media (min-width:1273px) {
         
     }
     @media (min-width: 769px) and (max-width: 1272px){
-        padding: 12px 32px;
+        
     }
     @media (min-width: 200px) and (max-width: 768px) {
-        padding: 0px 24px;
+        
     }
-    &__container{
-        align-items: center;
-    }
+    
     &__btn-menu{
         background-color: transparent;
         border: none;

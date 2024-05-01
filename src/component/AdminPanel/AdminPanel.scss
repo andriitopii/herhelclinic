@@ -1,0 +1,28 @@
+@import "../../sass/abstract/variable.scss";
+.admin-panel{
+    max-height: fit-content;
+    min-height: 100vh;
+    color: $BRANDBLACK;
+    gap: 24px;
+    &__nav{
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $BRANDORANGE;
+        padding: 0 12px;
+        border-radius: 12px;
+        &_logo{
+            width: 150px;
+            & svg {
+                width: 100%;
+            }
+        }
+    }
+    &__content{
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

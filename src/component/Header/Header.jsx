@@ -6,6 +6,7 @@ import "./Header.scss";
 import headerVideo from "./headervideo.mp4"
 import LineHorizontal from "../Icon/LineHorizontal";
 import { useInView } from "react-intersection-observer";
+import Nav from "../Nav/Nav";
 const HeaderTitle = ({title}) => {
     const {ref, inView} = useInView({threshold: 0.2});
     return(<h1 ref={ref} className={`${inView ? "show-animate" :"hide-animate"}`}>{title}</h1>)
@@ -18,7 +19,7 @@ const HeaderTitle3 = ({title}) => {
     const {ref, inView} = useInView({threshold: 0.2});
     return(<h3 ref={ref} className={`${inView ? "show-animate" :"hide-animate"}`}>{title}</h3>)
 }
-const Header = ({visible}) => {
+const Header = () => {
     const [lineDecor, setLineDecor] = useState(true)
     function setLine(){
         const width = window.innerWidth;
@@ -33,11 +34,13 @@ const Header = ({visible}) => {
 
     return ( 
     <header id="header" className="header">
-        <div className={`header__video ${visible ? "hide-animate" : "show-animate"}`}>
-        {visible ? <></>: <video  loop autoPlay muted src={headerVideo} ></video> }
-        </div>
         
+        <div className={`header__video show-animate`}>
+     <video playsInline loop autoPlay muted src={headerVideo} ></video> 
+        </div>
+        <Nav/>
         <div className="header__container container container--row ">
+        
         <div className="header__social" >
             <ul>
                 <li><a href="#">ING</a></li>

@@ -11,21 +11,23 @@ import WhySection from "../WhySection/WhySection";
 import { useInView } from "react-intersection-observer";
 import Loader from "../Loader/Loader";
 import { lazy, useEffect, useState } from "react";
+import favicon from "./favicon.svg";
+
+
 const Content = () => {
-  const {ref, inView} = useInView({
-    threshold: 0.1
-  })
+  
   
   return (
     <>
     <Helmet>
-      <title>HERHEL CLINIC</title>
+      <title>HERHEL CLINIC - KLINIKA MEDYCYNY ESTETYCZNEJ</title>
+      <link rel="icon" type="image/svg+xml" href={favicon} />
     </Helmet>
     
-    <Header visible={inView}/>
+    <Header/>
    
       
-      <main ref={ref} className="main">
+      <main className="main">
         <ServiceSection/>
         <QuateSection/>
         <VideoSection/>

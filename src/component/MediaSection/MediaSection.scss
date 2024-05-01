@@ -6,6 +6,9 @@
   position: relative;
   color: $BRANDBLACK;
   justify-content: center;
+  min-height:700px ;
+  max-height: 900px;
+  height: 100vh;
   @media (min-width: 1273px) {
     border-bottom-left-radius: 90px;
     border-bottom-right-radius: 90px;
@@ -18,12 +21,11 @@
   @media (min-width: 200px) and (max-width: 768px) {
     border-bottom-left-radius: 48px;
     border-bottom-right-radius: 48px;
-   height: fit-content;
   }
   &__container.container{
     gap: 32px;
     overflow: hidden;
-    
+    height: 100%;
   }
   &:after {
     position: absolute;
@@ -79,6 +81,7 @@
     &_control{
       display: flex;
       align-items: center;
+      height: fit-content;
       gap: 32px;
       opacity: 0;
       transform: translateY(20px);
@@ -93,7 +96,7 @@
         }
         & svg {
           @media (min-width: 1273px) {
-        
+        width: 100px;
           }
           @media (min-width: 769px) and (max-width: 1272px) {
             width: 73px;
@@ -114,16 +117,20 @@
     }
   }
   &__content{
+    display: flex;
+    overflow: hidden;
+    flex: 1;
     &_slider{
       display: flex;
       flex-direction: row;
+      align-items: center;
       gap: 24px;
       overflow-x: scroll;
       overflow-y: hidden;
       scrollbar-width: none;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      padding: 10px;
+      
     }
   }
 }

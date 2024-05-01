@@ -1,7 +1,7 @@
 @import "../../sass/abstract/variable.scss";
 .logo{
-    width: 264px;
-    height: 64px;
+    width: 200px;
+    height: 55px;
     & svg {
         width: 100%;
         height: 100%;
@@ -11,7 +11,7 @@
         
     }
     @media (min-width: 769px) and (max-width: 1272px){
-        width: 222px;
+        width: 200px;
         height: 55px;
     }
     @media (min-width: 200px) and (max-width: 768px) {

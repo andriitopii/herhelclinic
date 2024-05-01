@@ -1,0 +1,30 @@
+@import "../../sass/abstract/mixin.scss";
+@import "../../sass/abstract/variable.scss";
+.admin-media{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 32px;
+    &__add{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 24px;
+        & form {
+            display: flex;
+            flex-direction: column;
+            gap:12px;
+            & input{
+                @include admin-input;
+            }
+            & button{
+                @include admin-input-btn;
+            }
+        }
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        flex: 3;
+    }
+}

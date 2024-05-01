@@ -1,17 +1,31 @@
 import { Helmet } from "react-helmet";
-
+import { app } from "../../bd/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import Loader from "../Loader/Loader";
+import AdminLogin from "../AdminLogin/AdminLogin";
+import AdminPanel from "../AdminPanel/AdminPanel";
+import { Outlet } from "react-router-dom";
 const AdminPage = () => {
-    return ( <main>
-        <Helmet>
-        <title>HERHEL CLINIC | Панель керування</title>
-        </Helmet>
-        <form>
-            <input type="text"/>
-            <input type="password"></input>
-            <input type="submit"></input>
-        </form>
-        </main>
-     );
-}
+  const [user, setUser] = useState(false);
+  const auth = getAuth(app);
+  
+    onAuthStateChanged(auth, (user) => {
+        setUser(user);
+      });
  
+  
+  return (
+    <main>
+      <Helmet>
+        <title>HERHEL CLINIC | Панель керування</title>
+      </Helmet>
+      {user === null && <AdminLogin/>}
+      {user === false && <Loader />}
+      {user && <AdminPanel><Outlet/></AdminPanel>}
+      
+    </main>
+  );
+};
+
 export default AdminPage;

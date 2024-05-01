@@ -1,15 +1,13 @@
 import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
-// import Home from './component/Home/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import Content from './component/Content/Content'
 import "./master.scss"
-import AdminPage from './component/AdminPage/AdminPage'
 import Police from './component/Police/Police'
-// import Loader from './component/Loader/Loader'
+import AdminMedia from './component/AdminMedia/AdminMedia'
 const Content = lazy(()=> import('./component/Content/Content'))
 const Loader = lazy(()=> import('./component/Loader/Loader'))
 const Home = lazy(()=> import('./component/Home/Home'))
+const AdminPage = lazy(()=> import('./component/AdminPage/AdminPage'))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -18,8 +16,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<Content/>}/>
       <Route path='/police' element={<Police/>}/>
     </Route>
-    <Route path="/admin" element={<AdminPage/>}>
-      <Route index element={<Content/>}/>
+    <Route path="/admin" element={<Suspense fallback="loader"><AdminPage/></Suspense>}>
+      <Route index element={"головна"}/>
+      <Route path='media' element={<AdminMedia/>}/>
+
+      <Route path='*' element={"404"}/>
     </Route>
   </Routes>
    

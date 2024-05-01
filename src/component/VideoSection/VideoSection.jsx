@@ -20,7 +20,7 @@ const VideoSection = () => {
 
   return (
     <section ref={ref} id="video" className="video">
-      <video ref={refVideo}  muted   loop  src={videoVideo}  className={`video__media ${inView ? "show-animate": "hide-animate"}`}></video>
+      <video ref={refVideo} playsInline muted   loop  src={videoVideo}  className={`video__media ${inView ? "show-animate": "hide-animate"}`}></video>
     </section>
   );
 };
