@@ -1,31 +1,83 @@
 @import "../../sass/abstract/mixin.scss";
 @import "../../sass/abstract/variable.scss";
-.admin-services{
+.admin-services {
+  display: flex;
+  width: 100%;
+  gap: 32px;
+  &__type {
     display: flex;
-    width: 100%;
-    &__type{
-        flex: 1;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+    &_add-btn{
+        @include admin-input-btn
     }
-    &__content{
-        flex: 2;
-        &_form{
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            & input {
-                @include admin-input
-            }
-            &-row {
+    & ul {
+        display: flex;
+        flex-direction: column;
+        & li {
+            & button {
                 display: flex;
-                gap: 12px;
-                & input {
-                    flex: 1;
-                    
+                border: none;
+                padding: 12px;
+                width: 100%;
+                box-sizing: border-box;
+                cursor: pointer;
+                align-items: center;
+                justify-content: center;
+                transition: all ease-in-out .25s;
+                border-radius: 6px;
+                font-family: Montserrat-Regular;
+                font-size: 15px;
+                &:hover {
+                    background-color: rgba($BRANDORANGE, 0.2);
                 }
             }
-            & button {
-                @include admin-input-btn
-            }
         }
+    }
+  }
+  &__content {
+    flex: 3;
+    &_form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      & input {
+        @include admin-input;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      &-row {
+        display: flex;
+        gap: 12px;
+        & input, & label {
+          flex: 1;
+        }
+        & label {
+            font-family: Montserrat-Regular;
+            font-size: 12px;
+            
+        }
+      }
+      &-column{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        & div {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px
+        }
+      }
+      & button {
+        @include admin-input-btn;
+      }
+    }
+  }
+}
+.admin-active-btn{
+    background-color: rgba($BRANDORANGE, 0.8);
+    &:hover.admin-active-btn{
+        background-color: rgba($BRANDORANGE, 1);
     }
 }
