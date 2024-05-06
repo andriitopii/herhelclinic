@@ -1,8 +1,12 @@
 @import "../../sass/abstract/variable.scss";
 .admin-panel{
+    display: flex;
+    flex-direction: column;
+    
     max-height: fit-content;
     min-height: 100vh;
     color: $BRANDBLACK;
+    max-width: 1824px;
     gap: 24px;
     &__nav{
         display: flex;
@@ -10,11 +14,15 @@
         box-sizing: border-box;
         align-items: center;
         justify-content: space-between;
-        background-color: $BRANDORANGE;
-        padding: 0 12px;
+        background-color: $BRANDBLACK;
+        padding:6px 12px;
         border-radius: 12px;
+        color: $BRANDCREAMWHITE;
         &_logo{
+            display: flex;
+            align-items: center;
             width: 150px;
+            min-width: 150px;
             & svg {
                 width: 100%;
             }
@@ -28,7 +36,25 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                & a {
+                    color: $BRANDCREAMWHITE;
+                    font-family: Montserrat-SemiBold;
+                    text-decoration: none;
+                }
+                .menu-active{
+                    color: $BRANDORANGE;
+                }
             }
+        }
+        &_exit{
+            display: flex;
+            border: none;
+            background-color: transparent;
+            height: 100%;
+            align-items: center;
+            cursor: pointer;
+            font-family: Montserrat-SemiBold;
+            color: $BRANDCREAMWHITE;
         }
     }
     &__content{

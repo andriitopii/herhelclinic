@@ -1,6 +1,7 @@
 @import "./variable.scss";
 @mixin admin-input {
   padding: 12px;
+  flex: 1;
   font-family: Montserrat-Medium;
   font-size: 14px;
   border: none;

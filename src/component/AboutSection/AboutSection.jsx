@@ -5,6 +5,10 @@ import HealthSvg from "../Icon/HealthSvg";
 import LineHorizontalBlack from "../Icon/LineHorizontalBlack";
 import SchoolSvg from "../Icon/SchoolSvg";
 import "./AboutSection.scss";
+import { MyUseContext } from "../../context/Context";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { app } from "../../bd/firebase";
+import { useEffect, useState } from "react";
 const HeaderTitle = ({ title }) => {
   const { ref, inView } = useInView({ threshold: 0.2 });
   return (
@@ -23,29 +27,51 @@ const HeaderDescrip = ({ descrip }) => {
 };
 
 const AboutArticle = ({ icon, h2, p, defaultClass }) => {
-  const {ref, inView} = useInView({ threshold: 0.2 });
-  const {ref:ref1, inView: inView1} = useInView({ threshold: 0.2 });
-  const {ref:ref2, inView: inView2} = useInView({ threshold: 0.2 });
+  const { ref, inView } = useInView({ threshold: 0.2 });
+  const { ref: ref1, inView: inView1 } = useInView({ threshold: 0.2 });
+  const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.2 });
 
   return (
-    <div ref={ref} className={`${defaultClass} ${inView ? "show-animate": "hide-animate"} `}>
+    <div
+      ref={ref}
+      className={`${defaultClass} ${inView ? "show-animate" : "hide-animate"} `}
+    >
       {icon}
-      <h2 ref={ref1} className={` ${inView1 ? "show-animate": "hide-animate"} `}>{h2}</h2>
-      <p ref={ref2} className={` ${inView2 ? "show-animate": "hide-animate"} `}>{p}</p>
+      <h2
+        ref={ref1}
+        className={` ${inView1 ? "show-animate" : "hide-animate"} `}
+      >
+        {h2}
+      </h2>
+      <p
+        ref={ref2}
+        className={` ${inView2 ? "show-animate" : "hide-animate"} `}
+      >
+        {p}
+      </p>
     </div>
   );
 };
 const AboutSection = () => {
+  const { lang } = MyUseContext();
+  const db = getFirestore(app);
+  const [dataAbout, setDataAbout] = useState(null);
+  const getDataAbout = async () => {
+    const docAbout = doc(db, "lang", "about");
+    await getDoc(docAbout).then((doc)=>setDataAbout(doc.data())).catch((err)=>console.log(err))
+  };
+  useEffect(() => {
+    getDataAbout()
+  }, []);
+  console.log(dataAbout);
   return (
     <section id="about" className="about">
       <div className="container about__container">
         <div className="about__header">
           <div>
-            <HeaderTitle title="Herhel clinic" />
+            <HeaderTitle title={dataAbout ? dataAbout[`${lang}`].titleSection : ""} />
             <HeaderDescrip
-              descrip="Miejsce, w którym łączą się wysokie standardy i niezrównana
-              dbałość o szczegóły I jesteśmy gotowi zapewnić, że po prostu nie
-              da się tego nie poczuć od pierwszych sekund pobytu"
+              descrip={dataAbout ? dataAbout[`${lang}`].descripSection : ""}
             />
           </div>
           <div>
@@ -56,32 +82,27 @@ const AboutSection = () => {
           <AboutArticle
             icon={<AllInclusiceSvg />}
             defaultClass="about__content_item about__img1"
-            p="Salon kosmetyczny, sklep z markowymi kosmetykami i klinika
-              medycyny estetycznej w jednej lokalizacji"
-            h2="Uniwersalność"
+            p={dataAbout ? dataAbout[`${lang}`].item1.descrip : ""}
+            h2={dataAbout ? dataAbout[`${lang}`].item1.title : ""}
           />
           <AboutArticle
             icon={<HealthSvg />}
             defaultClass="about__content_item about__img3"
-            p="Wykwalifikowane doradztwo w zakresie doboru usług i produktów
-            kosmetycznych gwarantuje skuteczność rezultatu."
-            h2="Opieka"
+            p={dataAbout ? dataAbout[`${lang}`].item3.descrip : ""}
+            h2={dataAbout ? dataAbout[`${lang}`].item3.title : ""}
           />
           <AboutArticle
             icon={<SchoolSvg />}
             defaultClass="about__content_item"
-            p="Każdy specjalista jest mistrzem surfingu w osobnym kierunku, ze
-              100% opanowaniem umiejętności"
-            h2="Profesjonalizm"
+            p={dataAbout ? dataAbout[`${lang}`].item2.descrip : ""}
+            h2={dataAbout ? dataAbout[`${lang}`].item2.title : ""}
           />
           <AboutArticle
             icon={<ChairSvg />}
             defaultClass="about__content_item about__img2"
-            p="Każda usługa ma własną przestrzeń z przytulną atmosferą, w której
-              poczujesz się swobodnie."
-            h2="Komfort"
+            p={dataAbout ? dataAbout[`${lang}`].item4.descrip : ""}
+            h2={dataAbout ? dataAbout[`${lang}`].item4.title : ""}
           />
-          
         </div>
       </div>
     </section>

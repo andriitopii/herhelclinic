@@ -9,21 +9,23 @@ import { Outlet } from "react-router-dom";
 const AdminPage = () => {
   const [user, setUser] = useState(false);
   const auth = getAuth(app);
-  
-    onAuthStateChanged(auth, (user) => {
-        setUser(user);
-      });
- 
-  
+
+  onAuthStateChanged(auth, (user) => {
+    setUser(user);
+  });
+
   return (
-    <main>
+    <main style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Helmet>
         <title>HERHEL CLINIC | Панель керування</title>
       </Helmet>
-      {user === null && <AdminLogin/>}
+      {user === null && <AdminLogin />}
       {user === false && <Loader />}
-      {user && <AdminPanel><Outlet/></AdminPanel>}
-      
+      {user && (
+        <AdminPanel>
+          <Outlet />
+        </AdminPanel>
+      )}
     </main>
   );
 };
