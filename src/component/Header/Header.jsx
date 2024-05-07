@@ -11,6 +11,7 @@ import { MyUseContext } from "../../context/Context";
 import Logo from "../Logo/Logo";
 import { app } from "../../bd/firebase";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
+import InstagramSvg from "../Icon/InstgramSvg";
 const HeaderTitle = ({ title }) => {
   const { ref, inView } = useInView({ threshold: 0.2 });
   return (
@@ -68,14 +69,9 @@ const Header = () => {
         <div className="header__social">
           <ul>
             <li>
-              <a href="#">ING</a>
+              <a href="https://www.instagram.com/herhel.clinic" target="__blank"><InstagramSvg/></a>
             </li>
-            <li>
-              <a href="#">FC</a>
-            </li>
-            <li>
-              <a href="#">TT</a>
-            </li>
+            
           </ul>
           <ul>
             <li>
@@ -94,6 +90,7 @@ const Header = () => {
             <Button
               href="https://booksy.com/uk-pl/229392_herhel-clinic_medycyna-estetyczna_3_warszawa?do=invite#ba_s=dl_1"
               type="white-fill"
+              target="__blank"
             >
               
               {dataHeader ? dataHeader[`${lang}`].btnVisit: ""}

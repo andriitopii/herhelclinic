@@ -9,6 +9,7 @@ import { app } from "../../bd/firebase";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { MyUseContext } from "../../context/Context";
 import { useEffect, useState } from "react";
+import InstagramSvg from "../Icon/InstgramSvg";
 const Footer = () => {
   const { lang } = MyUseContext();
   const db = getFirestore(app);
@@ -27,7 +28,7 @@ const Footer = () => {
       <div className="container container--column">
         <div className="footer__header">
           <Logo type="ACHOR" />
-          <Button type="white-fill">
+          <Button target="__blank"type="white-fill" href="https://booksy.com/uk-pl/229392_herhel-clinic_medycyna-estetyczna_3_warszawa?do=invite#ba_s=dl_1">
             {lang == "pl" && "UMOW WIZYTE"}
             {lang == "en" && "VISIT AGREEMENTS"}
           </Button>
@@ -156,14 +157,9 @@ const Footer = () => {
 
           <ul>
             <li>
-              <a href="#">ING</a>
+              <a href="https://www.instagram.com/herhel.clinic" target="__blank"><InstagramSvg/></a>
             </li>
-            <li>
-              <a href="#">FC</a>
-            </li>
-            <li>
-              <a href="#">TT</a>
-            </li>
+            
           </ul>
         </div>
       </div>
