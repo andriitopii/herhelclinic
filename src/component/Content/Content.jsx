@@ -15,7 +15,7 @@ import favicon from "./favicon.svg";
 
 
 const Content = () => {
-  
+  const {ref, inView} = useInView({threshold: 0.1})
   
   return (
     <>
@@ -24,10 +24,10 @@ const Content = () => {
       <link rel="icon" type="image/svg+xml" href={favicon} />
     </Helmet>
     
-    <Header/>
+    <Header view={inView}/>
    
       
-      <main className="main">
+      <main ref={ref} className={`main`}>
         <ServiceSection/>
         <QuateSection/>
         <VideoSection/>

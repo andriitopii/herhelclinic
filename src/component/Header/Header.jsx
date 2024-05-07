@@ -36,7 +36,7 @@ const HeaderTitle3 = ({ title }) => {
     </h3>
   );
 };
-const Header = () => {
+const Header = ({view}) => {
     const db = getFirestore(app);
   const [lineDecor, setLineDecor] = useState(true);
   const [dataHeader, setDataHeader] = useState(null);
@@ -61,7 +61,7 @@ const Header = () => {
   
   return (
     <header id="header" className="header">
-      <div className={`header__video show-animate`}>
+      <div className={`header__video ${view ? "hide-animate":"show-animate"}`}>
         <video playsInline loop autoPlay muted src={headerVideo}></video>
       </div>
       <Nav />
