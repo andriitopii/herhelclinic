@@ -7,10 +7,17 @@ import PrevSvg from "../Icon/PrevSvg";
 import MediaArticle from "../MediaArticle/MediaArticle";
 import "./MediaSection.scss";
 import { useInView } from "react-intersection-observer";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 import { app } from "../../bd/firebase";
 import { useEffect } from "react";
 import { useState } from "react";
+import { MyUseContext } from "../../context/Context";
 const MediaTitle = ({ title }) => {
   const { ref, inView } = useInView({ threshold: 0.2 });
   return (
@@ -28,6 +35,7 @@ const MediaDescrip = ({ descrip }) => {
   );
 };
 const MediaSection = () => {
+  const {lang} = MyUseContext()
   const slider = useRef();
   function scrollSlide(action) {
     const clientWidth = slider.current.clientWidth;
@@ -56,21 +64,27 @@ const MediaSection = () => {
     }
   }
   const { ref: ref1, inView: inView1 } = useInView({ threshold: 0.2 });
-  const [dataArr, setArrData] = useState([])
-  const db = getFirestore(app)
+  const [dataArr, setArrData] = useState([]);
+  const [dataMediaLang, setDataMediaLang] = useState(null);
+  const db = getFirestore(app);
   const getMedia = async () => {
     const dataMedia = await getDocs(collection(db, "media"));
     const arrMob = [];
-    dataMedia.forEach((doc)=>{
+    dataMedia.forEach((doc) => {
       const mobObj = doc.data();
       mobObj.id = doc.id;
-      arrMob.push(mobObj)
+      arrMob.push(mobObj);
       // setArrData([...dataArr, mobObj])
-    })
-    setArrData(arrMob)
+    });
+    setArrData(arrMob);
+  };
+  const getMediaLang = async () => {
+    const docMedia = doc(db, "lang", "media");
+    await getDoc(docMedia).then((doc)=>setDataMediaLang(doc.data())).catch(()=>alert("Помилка завантаження"))
   };
   useEffect(() => {
     getMedia();
+    getMediaLang();
   }, []);
 
   return (
@@ -78,8 +92,8 @@ const MediaSection = () => {
       <div className="media__container container container--column">
         <div className="media__header">
           <div className="media__header_title">
-            <MediaTitle title="My w mediach" />
-            <MediaDescrip descrip="Jesteśmy dumni, że zostaliśmy docenieni przez różne media i publikacje, które celebrują nasze osiągnięcia i najlepsze praktyki w medycynie estetycznej." />
+            <MediaTitle title={dataMediaLang ? dataMediaLang[`${lang}`].title : ""} />
+            <MediaDescrip descrip={dataMediaLang ? dataMediaLang[`${lang}`].descrip : ""} />
           </div>
           <div
             ref={ref1}
@@ -96,10 +110,14 @@ const MediaSection = () => {
         </div>
         <div className="media__content">
           <div ref={slider} className="media__content_slider">
-            {
-              dataArr.map((item)=><MediaArticle key={item.id} title={item.title} urlImg={item.img} urlPost={item.url}/>)
-            }
-            
+            {dataArr.map((item) => (
+              <MediaArticle
+                key={item.id}
+                title={item.title}
+                urlImg={item.img}
+                urlPost={item.url}
+              />
+            ))}
           </div>
         </div>
       </div>

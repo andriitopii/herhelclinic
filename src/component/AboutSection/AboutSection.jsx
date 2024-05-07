@@ -63,7 +63,7 @@ const AboutSection = () => {
   useEffect(() => {
     getDataAbout()
   }, []);
-  console.log(dataAbout);
+
   return (
     <section id="about" className="about">
       <div className="container about__container">

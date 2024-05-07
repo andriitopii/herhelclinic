@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const ItemEditServiceCurrent = ({ data, regist }) => {
   const length = data.pl.item.length;
   const [arrItem, setArrItem] = useState([]);
-  console.log(data.pl.item.length);
+ 
   
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ItemEditServiceCurrent = ({ data, regist }) => {
         </>
       );
     }
-    console.log(mobArr);
+   
     setArrItem(mobArr)
   },[data]);
   return <>{arrItem.map((item)=><div key={Math.random()}>{item}</div>)}</>;
@@ -37,7 +37,7 @@ const ItemEditService = ({ data }) => {
     reset,
   } = useForm({ mode: "onChange" });
   const updateDataService = async (data) => {
-    console.log(data);
+    
   };
 
   return (

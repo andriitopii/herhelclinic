@@ -7,6 +7,8 @@
   background-color: $BRANDCREAMWHITE;
   & h1 {
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
     @media (min-width:1273px) {
         font-size: 72px;
     }
@@ -24,8 +26,14 @@
   & p {
     text-align: center;
     font-family: Montserrat-SemiBold;
+    opacity: 0;
+    transform: translateY(20px);
   }
-  & span{
+  & > span{
+    
+    
+  }
+  &__img1, &__img2{
     display: inline-flex;
     width: 266px;
     max-width: 266px;
@@ -47,8 +55,10 @@
   }
   &__img1 {
     background-image: url("./imgdecor1.png");
+    margin-right: 10px;
   }
   &__img2 {
     background-image: url("./imgdecor2.png");
+    margin-right: 10px
   }
 }

@@ -1,65 +1,65 @@
 @import "../../sass/abstract/variable.scss";
-.admin-panel{
+.admin-panel {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: fit-content;
+  min-height: 100vh;
+  color: $BRANDBLACK;
+  max-width: 1824px;
+  gap: 24px;
+  &__nav {
     display: flex;
-    flex-direction: column;
-    
-    max-height: fit-content;
-    min-height: 100vh;
-    color: $BRANDBLACK;
-    max-width: 1824px;
-    gap: 24px;
-    &__nav{
-        display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $BRANDBLACK;
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: $BRANDCREAMWHITE;
+    &_logo {
+      display: flex;
+      align-items: center;
+      width: 150px;
+      min-width: 150px;
+      & svg {
         width: 100%;
-        box-sizing: border-box;
+      }
+    }
+    &_menu {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      height: 100%;
+      & li {
+        display: flex;
         align-items: center;
-        justify-content: space-between;
-        background-color: $BRANDBLACK;
-        padding:6px 12px;
-        border-radius: 12px;
-        color: $BRANDCREAMWHITE;
-        &_logo{
-            display: flex;
-            align-items: center;
-            width: 150px;
-            min-width: 150px;
-            & svg {
-                width: 100%;
-            }
+        justify-content: center;
+        & a {
+          color: $BRANDCREAMWHITE;
+          font-family: Montserrat-SemiBold;
+          text-decoration: none;
         }
-        &_menu{
-            display: flex;
-            flex-direction: row;
-            gap: 8px;
-            height: 100%;
-            & li {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                & a {
-                    color: $BRANDCREAMWHITE;
-                    font-family: Montserrat-SemiBold;
-                    text-decoration: none;
-                }
-                .menu-active{
-                    color: $BRANDORANGE;
-                }
-            }
+        .menu-active {
+          color: $BRANDORANGE;
         }
-        &_exit{
-            display: flex;
-            border: none;
-            background-color: transparent;
-            height: 100%;
-            align-items: center;
-            cursor: pointer;
-            font-family: Montserrat-SemiBold;
-            color: $BRANDCREAMWHITE;
-        }
+      }
     }
-    &__content{
-        display: flex;
-        width: 100%;
-        box-sizing: border-box;
+    &_exit {
+      display: flex;
+      border: none;
+      background-color: transparent;
+      height: 100%;
+      align-items: center;
+      cursor: pointer;
+      font-family: Montserrat-SemiBold;
+      color: $BRANDCREAMWHITE;
     }
+  }
+  &__content {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
