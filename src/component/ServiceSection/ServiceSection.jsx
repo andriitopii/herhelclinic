@@ -56,7 +56,7 @@ const ServiceSection = () => {
               dataService.map((item) => {
                 return (
                   <button
-                  key={item.id}
+                    key={item.id}
                     onClick={(e) => activeTab(e.currentTarget, item.id)}
                     className="service__btn"
                   >
@@ -67,23 +67,28 @@ const ServiceSection = () => {
               })}
           </div>
           <div className="service__detail">
+            <div className="service__detail_content">
+              <h2>{detailService && detailService[`${lang}`].titleService}</h2>
+              <p>{detailService && detailService[`${lang}`].pService}</p>
+              <ul className="service__detail_content_services">
+                {detailService &&
+                  detailService[`${lang}`].item.map((item) => (
+                    <li key={Math.random()}>
+                      <span>{Object.keys(item)}</span>
+                      <span>{Object.values(item)}ZL</span>
+                    </li>
+                  ))}
+              </ul>
+              <LineVertical stroke="#333333" />
+              <Button type="sandy-fill">
+                {lang === "pl" &&  "UMOW WIZYTE"}
+                {lang === "en" &&  "Make an appointment"}
+               </Button>
+            </div>
 
-            <h2>{detailService && detailService[`${lang}`].titleService}</h2>
-            <p>{detailService && detailService[`${lang}`].pService}</p>
-            <ul className="service__detail_services">
-              { detailService && detailService[`${lang}`].item.map((item) => (
-                <li key={Math.random()}>
-                  <span>{Object.keys(item)}</span>
-                  <span>{Object.values(item)}ZL</span>
-                </li>
-              ))}
-            </ul>
-            <LineVertical stroke="#333333" />
-            <Button type="sandy-fill">UMOW WIZYTE</Button>
-          </div>
-
-          <div className="service__image">
-            <img loading="lazy" src={imgArticle} />
+            <div className="service__detail_img">
+              <img loading="lazy" src={imgArticle} />
+            </div>
           </div>
         </div>
       </div>
