@@ -8,6 +8,7 @@ import AdminServices from './component/AdminServices/AdminServices'
 import { ContextGlobal } from './context/Context'
 import AdminHeader from './component/AdminMain/AdminMain'
 import AdminMain from './component/AdminMain/AdminMain'
+import AdminMessage from './component/AdminMessage/AdminMessage'
 const Content = lazy(()=> import('./component/Content/Content'))
 const Loader = lazy(()=> import('./component/Loader/Loader'))
 const Home = lazy(()=> import('./component/Home/Home'))
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<AdminMain/>}/>
       <Route path='media' element={<AdminMedia/>}/>
       <Route path='services-price' element={<AdminServices/>}/>
+      <Route path='message' element={<AdminMessage/>}/>
 
       <Route path='*' element={"404"}/>
     </Route>

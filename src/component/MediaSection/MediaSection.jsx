@@ -35,7 +35,7 @@ const MediaDescrip = ({ descrip }) => {
   );
 };
 const MediaSection = () => {
-  const {lang} = MyUseContext()
+  const { lang } = MyUseContext();
   const slider = useRef();
   function scrollSlide(action) {
     const clientWidth = slider.current.clientWidth;
@@ -80,7 +80,9 @@ const MediaSection = () => {
   };
   const getMediaLang = async () => {
     const docMedia = doc(db, "lang", "media");
-    await getDoc(docMedia).then((doc)=>setDataMediaLang(doc.data())).catch(()=>alert("Помилка завантаження"))
+    await getDoc(docMedia)
+      .then((doc) => setDataMediaLang(doc.data()))
+      .catch(() => getMediaLang());
   };
   useEffect(() => {
     getMedia();
@@ -92,8 +94,12 @@ const MediaSection = () => {
       <div className="media__container container container--column">
         <div className="media__header">
           <div className="media__header_title">
-            <MediaTitle title={dataMediaLang ? dataMediaLang[`${lang}`].title : ""} />
-            <MediaDescrip descrip={dataMediaLang ? dataMediaLang[`${lang}`].descrip : ""} />
+            <MediaTitle
+              title={dataMediaLang ? dataMediaLang[`${lang}`].title : ""}
+            />
+            <MediaDescrip
+              descrip={dataMediaLang ? dataMediaLang[`${lang}`].descrip : ""}
+            />
           </div>
           <div
             ref={ref1}

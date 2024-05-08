@@ -21,6 +21,9 @@ const AdminPanel = ({children}) => {
                     <NavLink className={asActive} to="services-price">Послуги</NavLink>
                 </li>
                 <li>
+                    <NavLink className={asActive} to="message">Повідомлення</NavLink>
+                </li>
+                <li>
                 <button className="admin-panel__nav_exit"onClick={()=>signOutAdmin()}>Вийти</button>
                 </li>
             </ul>
