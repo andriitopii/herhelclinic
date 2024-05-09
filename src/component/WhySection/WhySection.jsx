@@ -66,12 +66,12 @@ const WhySection = () => {
           </div>
           <div className="why__article_media">
             <div className="why__atmosfera-grid">
-              <WhyGridImage img={atm1} className="why__grid-image atm-grid-1" />
-              <WhyGridImage img={atm2} className="why__grid-image atm-grid-2" />
-              <WhyGridImage img={atm3} className="why__grid-image atm-grid-3" />
-              <WhyGridImage img={atm4} className="why__grid-image atm-grid-4" />
-              <WhyGridImage img={atm5} className="why__grid-image atm-grid-5" />
-              <WhyGridImage img={atm6} className="why__grid-image atm-grid-6" />
+              <WhyGridImage img={atm1} alt={lang === "pl" ? "WNĘTRZA KLINIKI" : "INTERIORS OF THE CLINIC" } className="why__grid-image atm-grid-1" />
+              <WhyGridImage img={atm2} alt={lang === "pl" ? "WNĘTRZA KLINIKI" : "INTERIORS OF THE CLINIC" } className="why__grid-image atm-grid-2" />
+              <WhyGridImage img={atm3} alt={lang === "pl" ? "WNĘTRZA KLINIKI" : "INTERIORS OF THE CLINIC" } className="why__grid-image atm-grid-3" />
+              <WhyGridImage img={atm4} alt={lang === "pl" ? "WNĘTRZA KLINIKI" : "INTERIORS OF THE CLINIC" } className="why__grid-image atm-grid-4" />
+              <WhyGridImage img={atm5} alt={lang === "pl" ? "WNĘTRZA KLINIKI" : "INTERIORS OF THE CLINIC" } className="why__grid-image atm-grid-5" />
+              <WhyGridImage img={atm6} alt={lang === "pl" ? "WNĘTRZA KLINIKI" : "INTERIORS OF THE CLINIC" } className="why__grid-image atm-grid-6" />
             </div>
           </div>
         </div>
@@ -80,22 +80,27 @@ const WhySection = () => {
             <div className="why__tool-grid">
               <WhyGridImage
                 img={tool1}
+                alt={lang === "pl" ? "NOWOCZESNE URZĄDZENIA" : "MODERN EQUIPMENT" }
                 className="why__grid-image tool-grid-1"
               />
               <WhyGridImage
                 img={tool2}
+                alt={lang === "pl" ? "NOWOCZESNE URZĄDZENIA" : "MODERN EQUIPMENT" }
                 className="why__grid-image tool-grid-2"
               />
               <WhyGridImage
                 img={tool3}
+                alt={lang === "pl" ? "NOWOCZESNE URZĄDZENIA" : "MODERN EQUIPMENT" }
                 className="why__grid-image tool-grid-3"
               />
               <WhyGridImage
                 img={tool4}
+                alt={lang === "pl" ? "NOWOCZESNE URZĄDZENIA" : "MODERN EQUIPMENT" }
                 className="why__grid-image tool-grid-4"
               />
               <WhyGridImage
                 img={tool5}
+                alt={lang === "pl" ? "NOWOCZESNE URZĄDZENIA" : "MODERN EQUIPMENT" }
                 className="why__grid-image tool-grid-5"
               />
             </div>
@@ -120,10 +125,10 @@ const WhySection = () => {
           </div>
           <div className="why__article_media">
             <div className="why__medic-grid">
-              <WhyGridImage img={med1} className="why__grid-image med-grid-1" />
-              <WhyGridImage img={med2} className="why__grid-image med-grid-2" />
-              <WhyGridImage img={med3} className="why__grid-image med-grid-3" />
-              <WhyGridImage img={med4} className="why__grid-image med-grid-4" />
+              <WhyGridImage img={med1} alt={lang === "pl" ? "LEKARZE EKSPERCI" : "EXPERT DOCTORS" } className="why__grid-image med-grid-1" />
+              <WhyGridImage img={med2}  alt={lang === "pl" ? "LEKARZE EKSPERCI" : "EXPERT DOCTORS" } className="why__grid-image med-grid-2" />
+              <WhyGridImage img={med3}  alt={lang === "pl" ? "LEKARZE EKSPERCI" : "EXPERT DOCTORS" } className="why__grid-image med-grid-3" />
+              <WhyGridImage img={med4}  alt={lang === "pl" ? "LEKARZE EKSPERCI" : "EXPERT DOCTORS" } className="why__grid-image med-grid-4" />
             </div>
           </div>
         </div>

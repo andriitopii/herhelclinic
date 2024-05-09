@@ -10,7 +10,9 @@
     animation-name: hideanimate;
     animation-fill-mode: forwards;
     animation-duration: 1s;
-
+ &--visible{
+    visibility: hidden;
+ }
 }
 .show-animate{
     

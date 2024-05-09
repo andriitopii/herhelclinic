@@ -8,10 +8,10 @@ const Nav = () => {
     return ( <nav className="nav">
         
             <Logo type=""></Logo>
-            <a onClick={()=> changeLang()} className="nav__lang-btn">
+            <button type="button" onClick={()=> changeLang()} className="nav__lang-btn">
                 {lang === "pl" && "English"}
                 {lang === "en" && "Polski"}
-            </a>
+            </button>
             
        
     </nav> );

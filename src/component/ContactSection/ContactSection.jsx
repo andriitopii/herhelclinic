@@ -143,7 +143,7 @@ const ContactSection = () => {
             inView1 ? "show-animate" : "hide-animate"
           }`}
         >
-          <img loading="lazy" src={contactImg} />
+          <img loading="lazy"  width="100%" height="100%" alt="CONTACT IMG"src={contactImg} />
         </div>
       </div>
     </section>

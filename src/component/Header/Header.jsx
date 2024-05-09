@@ -51,10 +51,11 @@ const HeaderTitle3 = ({ title }) => {
     </h3>
   );
 };
-const Header = ({ view }) => {
+const Header = () => {
   const db = getFirestore(app);
   const [lineDecor, setLineDecor] = useState(true);
   const [dataHeader, setDataHeader] = useState(null);
+  const {ref, inView} = useInView({threshold: 0.1})
   const { lang } = MyUseContext();
   function setLine() {
     const width = window.innerWidth;
@@ -77,9 +78,9 @@ const Header = ({ view }) => {
   }, []);
 
   return (
-    <header id="header" className="header">
+    <header ref={ref} id="header" className="header">
       <div
-        className={`header__video ${view ? "hide-animate" : "show-animate"}`}
+        className={`header__video ${inView ? "show-animate": "hide-animate--visible"}`}
       >
         <video playsInline loop autoPlay muted src={headerVideo}></video>
       </div>
@@ -92,6 +93,7 @@ const Header = ({ view }) => {
                 <a
                   href="https://www.instagram.com/herhel.clinic"
                   target="__blank"
+                  title="Instagram"
                 >
                   <InstagramSvg />
                 </a>
@@ -124,10 +126,11 @@ const Header = ({ view }) => {
                 href="https://booksy.com/uk-pl/229392_herhel-clinic_medycyna-estetyczna_3_warszawa?do=invite#ba_s=dl_1"
                 type="white-fill"
                 target="__blank"
+                title={dataHeader ? dataHeader[`${lang}`].btnVisit : ""}
               >
                 {dataHeader ? dataHeader[`${lang}`].btnVisit : ""}
               </Button>
-              <Button href="#service" type="white-trans-stroke">
+              <Button title={dataHeader ? dataHeader[`${lang}`].btnMore : ""}href="#service" type="white-trans-stroke">
                 {dataHeader ? dataHeader[`${lang}`].btnMore : ""}
               </Button>
             </div>
@@ -135,6 +138,7 @@ const Header = ({ view }) => {
               className="header__content_adress"
               href="https://maps.app.goo.gl/SUBTG7s4QVLZySGM7"
               target="__blank"
+              title="Addres"
             >
               {dataHeader ? dataHeader[`${lang}`].addres : ""}
             </a>

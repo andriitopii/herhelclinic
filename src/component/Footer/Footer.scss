@@ -147,7 +147,7 @@
       flex-direction: column-reverse;
   }
     & p {
-        color:rgba($BRANDCREAMWHITE, $alpha: 0.5) ;
+        color:rgba($BRANDCREAMWHITE, $alpha: 0.7) ;
         text-align: center;
     }
     & ul {
@@ -159,7 +159,7 @@
         & li {
             & a {
                 font-family: Montserrat-Medium;
-                color:rgba($BRANDCREAMWHITE, $alpha: 0.5) ;
+                color:rgba($BRANDCREAMWHITE, $alpha: 0.7) ;
                 text-transform: uppercase;
                 text-decoration: none;
                 text-wrap: nowrap;

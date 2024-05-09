@@ -8,7 +8,7 @@ const Logo = ({ type, color }) => {
   return (
     <>
       {type === "ACHOR" ? (
-        <a className="logo" onClick={() => scrollTop()}>
+        <a title="HOME PAGE" className="logo" onClick={() => scrollTop()}>
           <LogoSvg fill={color} />
         </a>
       ) : (

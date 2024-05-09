@@ -42,8 +42,7 @@ const MediaSection = () => {
     const scrollWidth = slider.current.scrollWidth;
     const scrollLeft = Math.floor(slider.current.scrollLeft);
     const maxScroll = scrollWidth - clientWidth;
-    console.log(scrollLeft);
-    console.log(maxScroll);
+   
 
     switch (action) {
       case "PREV":
