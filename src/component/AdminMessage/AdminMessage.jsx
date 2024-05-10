@@ -7,10 +7,12 @@ import {
   doc,
   getDoc,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import DoneSvg from "../Icon/DoneSvg";
 import DoneAllSvg from "../Icon/DoneAllSvg";
+import DeleteSvg from "../Icon/DeleteSvg";
 const PopUp = ({ update, message, name, status, time, data, timeId }) => {
   const [statusRead, setStatusRead] = useState(status);
   const db = getFirestore(app);
@@ -43,25 +45,48 @@ const PopUp = ({ update, message, name, status, time, data, timeId }) => {
       <p>{message}</p>
       <div className="message-block__message_date-status">
         <span>{time}</span>
-        <span>{statusRead ? <DoneAllSvg/> : <DoneSvg/>}</span>
+        <span>{statusRead ? <DoneAllSvg /> : <DoneSvg />}</span>
       </div>
     </div>
   );
 };
-const BlockMessage = ({ getNewData, data }) => {
+const BlockMessage = ({dataBlock, getNewData, data }) => {
+  const db = getFirestore(app);
+  const deleteClient = async (it) => {
+    const userAnswer = confirm("Видалити весь діалог? Ця дія безповоротна");
+    if (userAnswer) {
+      await deleteDoc(doc(db, "message", it))
+        .then(() => {
+        
+          alert("Успішно видалено");
+          getNewData();
+          dataBlock(false)
+        })
+        .catch(() => alert("Помилка видалення"));
+    } else {
+      return;
+    }
+  };
   return (
     <div className="admin-message__message-block message-block">
       <div className="message-block__header">
-        <h1>{data.name}</h1>
-        <ul>
-            <li><h3>+48{data.phone}</h3></li>
-            <li><h3>{data.email}</h3></li>
-        </ul>
-        
+        <div className="message-block__header_info">
+          <h1>{data.name}</h1>
+          <ul>
+            <li>
+              <h3>+48{data.phone}</h3>
+            </li>
+            <li>
+              <h3>{data.email}</h3>
+            </li>
+          </ul>
+        </div>
+
+        <button title="Видалити" onClick={() => deleteClient(data.phone)}><DeleteSvg/></button>
       </div>
       <div className="message-block__message">
         <ul>
-          {data.message.map((item) => (
+          {data?.message?.map((item) => (
             <li key={item?.time?.seconds}>
               <PopUp
                 update={getNewData}
@@ -123,16 +148,20 @@ const AdminMessage = () => {
   return (
     <div className="admin-message">
       <div className="admin-message__user">
-        
         {dataMessage?.map((item) => (
+            
           <button
-            key={item?.time?.seconds}
+            key={item.message[0].time.seconds}
             type="button"
-            className={`admin-message__user_btn ${blockMessageData?.phone === item.phone && "admin-message__user_btn--active"}`}
+            className={`admin-message__user_btn ${
+              blockMessageData?.phone === item.phone &&
+              "admin-message__user_btn--active"
+            }`}
             onClick={() => showMessage(item)}
           >
+            
             <strong>
-              {item.name}/{item.phone}
+              {item.name} - <i>+48{item.phone}</i>
             </strong>
             {unReadMessage(item.message) != 0 && (
               <span>{`${unReadMessage(item.message)} `}</span>
@@ -141,9 +170,13 @@ const AdminMessage = () => {
         ))}
       </div>
       <div className="admin-message__message">
-        {stateBlockMessage === false && <div className="admin-message__message_firstDisplay"><h1>Оберіть клієнта праворуч</h1></div>}
+        {stateBlockMessage === false && (
+          <div className="admin-message__message_firstDisplay">
+            <h1>Оберіть клієнта праворуч</h1>
+          </div>
+        )}
         {stateBlockMessage === true && (
-          <BlockMessage getNewData={getDataMessage} data={blockMessageData} />
+          <BlockMessage getNewData={getDataMessage} data={blockMessageData} dataBlock={setStateBlockMessage} />
         )}
       </div>
     </div>

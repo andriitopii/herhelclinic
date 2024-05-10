@@ -6,23 +6,33 @@
   max-height: fit-content;
   min-height: 100vh;
   color: $BRANDBLACK;
-  max-width: 1824px;
+  width: 100%;
   gap: 24px;
+  padding: 0;
+  &__container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 24px;
+  }
   &__nav {
     display: flex;
     width: 100%;
+    justify-content: center;
     box-sizing: border-box;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: $BRANDBLACK;
-    padding: 6px 12px;
-    border-radius: 12px;
     color: $BRANDCREAMWHITE;
     &_logo {
       display: flex;
       align-items: center;
       width: 150px;
       min-width: 150px;
+      margin-left: 12px;
       & svg {
         width: 100%;
       }
@@ -32,17 +42,52 @@
       flex-direction: row;
       gap: 8px;
       height: 100%;
+      & li:last-child {
+        & a {
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(216, 57, 57);
+          }
+          & svg {
+          }
+        }
+      }
       & li {
         display: flex;
         align-items: center;
         justify-content: center;
         & a {
           color: $BRANDCREAMWHITE;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           font-family: Montserrat-SemiBold;
           text-decoration: none;
+          padding: 6px;
+          border-radius: 12px;
+          transition: all ease-in-out 0.25s;
+          &:hover {
+            background-color: #4b4a4a;
+          }
+          &:active {
+            background-color: #505050;
+          }
+          & svg {
+            width: 32px;
+            height: 32px;
+          }
+          & span {
+            font-size: 10px;
+          }
         }
         .menu-active {
-          color: $BRANDORANGE;
+          background-color: #4b4a4a;
+          &:active {
+            background-color: #505050;
+          }
+          & svg {
+            fill: $BRANDCREAMWHITE;
+          }
         }
       }
     }
@@ -60,6 +105,7 @@
   &__content {
     display: flex;
     width: 100%;
+    justify-content: center;
     box-sizing: border-box;
   }
 }

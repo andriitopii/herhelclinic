@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route index element={<Content/>}/>
       <Route path='/police' element={<Police/>}/>
     </Route>
-    <Route path="/admin" element={<Suspense fallback="loader"><AdminPage/></Suspense>}>
+    <Route path="/admin/*" element={<Suspense fallback="loader"><AdminPage/></Suspense>}>
       <Route index element={<AdminMain/>}/>
       <Route path='media' element={<AdminMedia/>}/>
       <Route path='services-price' element={<AdminServices/>}/>
