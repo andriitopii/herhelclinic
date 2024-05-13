@@ -2,21 +2,76 @@
 .admin-panel {
   display: flex;
   flex-direction: column;
-  height: fit-content;
-  max-height: fit-content;
-  min-height: 100vh;
+  max-height: 1080px;
+  min-height: 500px;
+  height: 100vh;
   color: $BRANDBLACK;
   width: 100%;
   gap: 24px;
   padding: 0;
+  overflow: hidden;
+  &__mobile-menu {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: $BRANDBLACK;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 0.5s;
+    & ul {
+      flex-direction: column;
+      gap: 24px;
+      & li {
+        
+        & a {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          text-decoration: none;
+          cursor: pointer;
+          & h3 {
+            color: $BRANDCREAMWHITE;
+            font-size: 32px;
+          }
+        }
+      }
+    }
+    @media (min-width: 200px) and (max-width: 767px) {
+      display: flex;
+    }
+    &_btn {
+      display: none;
+      width: 48px;
+      height: 48px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 110;
+      @media (min-width: 200px) and (max-width: 767px) {
+        display: block;
+      }
+      & svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
   &__container {
     display: flex;
     width: 100%;
     max-width: 1200px;
+    min-height: fit-content;
     justify-content: space-between;
-    align-items: center;
     box-sizing: border-box;
     padding: 0 24px;
+    overflow: hidden;
+    &--nav {
+      align-items: center;
+    }
   }
   &__nav {
     display: flex;
@@ -33,6 +88,7 @@
       width: 150px;
       min-width: 150px;
       margin-left: 12px;
+      z-index: 110;
       & svg {
         width: 100%;
       }
@@ -42,6 +98,9 @@
       flex-direction: row;
       gap: 8px;
       height: 100%;
+      @media (min-width: 200px) and (max-width: 767px) {
+        display: none;
+      }
       & li:last-child {
         & a {
           cursor: pointer;
@@ -105,6 +164,9 @@
   &__content {
     display: flex;
     width: 100%;
+    min-height: 500px;
+    flex: 1;
+    padding-bottom: 48px;
     justify-content: center;
     box-sizing: border-box;
   }
