@@ -50,17 +50,16 @@ const PopUp = ({ update, message, name, status, time, data, timeId }) => {
     </div>
   );
 };
-const BlockMessage = ({dataBlock, getNewData, data }) => {
+const BlockMessage = ({ dataBlock, getNewData, data }) => {
   const db = getFirestore(app);
   const deleteClient = async (it) => {
     const userAnswer = confirm("Видалити весь діалог? Ця дія безповоротна");
     if (userAnswer) {
       await deleteDoc(doc(db, "message", it))
         .then(() => {
-        
           alert("Успішно видалено");
           getNewData();
-          dataBlock(false)
+          dataBlock(false);
         })
         .catch(() => alert("Помилка видалення"));
     } else {
@@ -82,7 +81,9 @@ const BlockMessage = ({dataBlock, getNewData, data }) => {
           </ul>
         </div>
 
-        <button title="Видалити" onClick={() => deleteClient(data.phone)}><DeleteSvg/></button>
+        <button title="Видалити" onClick={() => deleteClient(data.phone)}>
+          <DeleteSvg />
+        </button>
       </div>
       <div className="message-block__message">
         <ul>
@@ -117,7 +118,7 @@ const AdminMessage = () => {
   const [dataMessage, setDataMessage] = useState(null);
   const [stateBlockMessage, setStateBlockMessage] = useState(false);
   const [blockMessageData, setBlockMessageData] = useState(null);
-
+  const [mobileShow, setMobileShow] = useState(false);
   const db = getFirestore(app);
   const getDataMessage = async () => {
     const colect = collection(db, "message");
@@ -129,6 +130,7 @@ const AdminMessage = () => {
     setDataMessage(mobArr);
   };
   const showMessage = (data) => {
+    setMobileShow(false)
     setStateBlockMessage(true);
     setBlockMessageData(data);
   };
@@ -143,13 +145,26 @@ const AdminMessage = () => {
   };
   useEffect(() => {
     getDataMessage();
+    
   }, []);
-
+  window.addEventListener("resize", ()=>{
+    if(window.innerWidth > 767){
+      setMobileShow(false)
+    }
+  })
   return (
     <div className="admin-message">
-      <div className="admin-message__user">
+      <div className="admin-message__mobile">
+        <button onClick={()=>setMobileShow(!mobileShow)}>
+          {mobileShow === false && blockMessageData === null && "ОБЕРІТЬ КЛІЄНТА"}
+          {mobileShow === true && blockMessageData === null && "ОБЕРІТЬ КЛІЄНТА"}
+          {mobileShow === false && blockMessageData != null && "ПОВЕРНУТИСЬ ДО СПИСКУ"}
+          {mobileShow === true && blockMessageData != null && `ПОВЕРНУТИСЬ ДО ${blockMessageData.name} `}
+          
+          </button>
+      </div>
+      <div   className="admin-message__user" style={{display: mobileShow && "flex"}}>
         {dataMessage?.map((item) => (
-            
           <button
             key={item.message[0].time.seconds}
             type="button"
@@ -159,7 +174,6 @@ const AdminMessage = () => {
             }`}
             onClick={() => showMessage(item)}
           >
-            
             <strong>
               {item.name} - <i>+48{item.phone}</i>
             </strong>
@@ -169,14 +183,18 @@ const AdminMessage = () => {
           </button>
         ))}
       </div>
-      <div className="admin-message__message">
+      <div style={{display: mobileShow && "none"}} className="admin-message__message">
         {stateBlockMessage === false && (
           <div className="admin-message__message_firstDisplay">
-            <h1>Оберіть клієнта праворуч</h1>
+            <h1>Оберіть клієнта</h1>
           </div>
         )}
         {stateBlockMessage === true && (
-          <BlockMessage getNewData={getDataMessage} data={blockMessageData} dataBlock={setStateBlockMessage} />
+          <BlockMessage
+            getNewData={getDataMessage}
+            data={blockMessageData}
+            dataBlock={setStateBlockMessage}
+          />
         )}
       </div>
     </div>

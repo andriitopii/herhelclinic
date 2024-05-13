@@ -68,7 +68,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 24px;
-    overflow: hidden;
+    height: fit-content;
     &--nav {
       align-items: center;
     }
@@ -169,5 +169,6 @@
     padding-bottom: 48px;
     justify-content: center;
     box-sizing: border-box;
+    overflow-y: scroll;
   }
 }

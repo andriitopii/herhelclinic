@@ -15,6 +15,8 @@ import {
 import { useEffect } from "react";
 import { TRUE } from "sass";
 import { set } from "firebase/database";
+import AddSvg from "../Icon/AddSvg";
+import AllListSvg from "../Icon/AllListSvg";
 const ItemEditServiceCurrent = ({ data, regist, objValid }) => {
   const length = data.pl.item.length;
   const [arrItem, setArrItem] = useState([]);
@@ -370,6 +372,7 @@ const AdminServices = () => {
   const [itemId, setItemId] = useState(null);
   const [dataService, setDataService] = useState([]);
   const [stateFormAdd, setStateFormAdd] = useState(null);
+  const [showMobile, setShowMobile] = useState(false)
   const initialItemService = [
     <ItemService regist={register1} count={1} errors={errors1} validobj={{
       required:{value: true, message: "Поле не може бути пустим"},
@@ -458,13 +461,25 @@ const AdminServices = () => {
   useEffect(()=>{
 reset1()
   },[isSubmitSuccessful])
+
+  window.addEventListener("resize", ()=>{
+    if(window.innerWidth > 767){
+      setShowMobile(false)
+    }
+  })
   return (
     <div className="admin-services">
-      <div className="admin-services__type">
+      <div className="admin-services__mobile">
+        <button onClick={()=>setShowMobile(true)}><AllListSvg/></button>
+        <button onClick={()=>{setShowMobile(false),setAddAndEditService(true)}}><AddSvg/></button>
+        
+      </div>
+      <div className="admin-services__type" style={{display: showMobile && "flex"}}>
         <button
           className="admin-services__type_add-btn"
           onClick={() => {
-            setAddAndEditService(true), setItemId(null);
+            
+            setAddAndEditService(true); setItemId(null);
           }}
         >
           Додати послугу
@@ -479,7 +494,7 @@ reset1()
                     ? "admin-active-btn"
                     : ""
                 }
-                onClick={() => showServiceEdit(item.id)}
+                onClick={() => {setShowMobile(false);showServiceEdit(item.id)}}
               >
                 {item.pl.nameService}
               </button>
@@ -487,7 +502,7 @@ reset1()
           ))}
         </ul>
       </div>
-      <div className="admin-services__content">
+      <div className="admin-services__content" style={{display: showMobile && "none"}}>
         {addAndEditService ? (
           <form
             className="admin-services__content_form"
